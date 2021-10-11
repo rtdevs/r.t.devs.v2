@@ -1,0 +1,229 @@
+@import './sass/vars';
+
+.App{
+    position: relative;
+    overflow-x: hidden;
+    & > *{
+        max-width: $max-width;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media only screen and (max-width: 85.375em) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+
+    .navContainer{
+        margin: 0 1rem;
+        width: 100%;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: $max-width;
+        display: flex;
+        justify-content: flex-end;
+        z-index: $highest-z-index;
+
+        @media only screen and (max-width: 85.375em) {
+            margin: 0;
+            padding: 0 1em;
+        }
+    }
+
+    .navWrapper{
+        padding: 0.2rem 4rem;
+        background-color: $color-white;
+        border-radius: 0 0 $br-small $br-medium;
+        box-shadow: 0px 1px 8px 0px $color-black;
+        top: 0;
+        right: 0;
+        height: 7.4rem;
+        height: auto;
+        position: relative;
+        opacity: 0.4;
+        transition: 0.1s;
+        transform: translateY(-100%);
+        animation: showNav 0.2s forwards 1.8s;
+
+        &:hover{
+            opacity: 0.98;
+        }
+
+        @media only screen and (max-width: 56.25em) {
+            border-radius: 0 0 0 $br-small;
+            padding: 0;
+            width: 7rem;
+        }
+    }
+
+    .mobileNavWrapper{
+        width: 20rem;
+        height: 400px;
+        max-height: 100vh;
+    }
+
+    @keyframes showNav {
+        0%{
+            transform: translateY(-100%);
+        }
+        100%{
+            transform: translateY(0);
+        }
+    }
+
+    .menuLogo{
+        @media only screen and (max-width: 56.25em) {
+            margin-left: auto;
+            width: 7rem;
+            height: 7rem;
+            padding: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            cursor: pointer;
+            transition: $transition;
+            z-index: 2;
+    
+            .logoLine{
+                width: 60%;
+                height: 2px;
+                background-color: $color-black;
+                transition: $transition;
+            }
+        }
+    }
+    .mobileMenuLogo{
+        .logoLine{
+            &:first-child{
+            }
+            &:nth-child(2){
+                transform: translateX(4px);
+            }
+            &:last-child{
+                transform: translateX(8px);
+            }
+        }
+    }
+
+    .nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media only screen and (max-width: 56.25em) {
+            position: absolute;
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        
+        .logo{
+            width: 7rem;
+            height: 7rem;
+            cursor: pointer;
+
+            & svg{
+                height: 100%;
+            }
+        }
+    
+        .navigation{
+            display: flex;
+            padding: 0 2rem;
+            transition: all $transition;
+
+            @media only screen and (max-width: 62.5em) {
+                padding: 0;
+            }
+            @media only screen and (max-width: 56.25em) {
+                height: 100%;
+            }
+            .list{
+
+                @media only screen and (max-width: 56.25em) {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-evenly;
+                }
+                .navLink{
+                    margin: 0 2rem;
+                    padding: 0.5rem 0;
+                    font-size: 2rem;
+                    cursor: pointer;
+                    transition: all $transition;
+                    text-transform: capitalize;
+                    position: relative;
+                    backface-visibility: hidden;
+
+                    @media only screen and (max-width: 37.5em) {
+                        font-size: 1.2rem;
+                        margin-right: 0.5rem;
+                        padding: 0rem 0.5rem;
+                    }
+
+                    &:hover{
+                        color: $color-purple;
+                    }
+
+                   &:hover::after{
+                        transform: scaleX(1);
+                        transform-origin: left;
+                   }
+    
+                    &::after{
+                        content: '';
+                        width: 100%;
+                        height: 80%;
+                        background-color: transparent;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        border-bottom: 1px solid $color-purple;
+                        transform: scaleX(0);
+                        transform-origin: right;
+                        transition: transform $transition;
+                    }
+                }
+            }
+        }
+
+        .langWrapper{
+
+            @media only screen and (max-width: 56.25em) {
+                display: flex;
+                width: 100%;
+                justify-content: space-evenly;
+            }
+            .lang{
+                font-size: 1.4rem;
+                cursor: pointer;
+
+                &:hover{
+                    font-weight: 700;
+                    backface-visibility: hidden;
+                }
+            }
+            .activeLang{
+                color: $color-purple;
+                font-weight: 700;
+            }
+        }
+    }
+    .mobileNav{
+        transform: translateX(0);
+        opacity: 1;
+        top: 8rem;
+        transition: $transition;
+        width: 100%;
+        flex-direction: column;
+        height: calc(100% - 8rem);
+        align-items: center;
+        padding-bottom: 2rem;
+    }
+
+}
+

@@ -1,0 +1,33 @@
+
+
+// Colors
+// $color-1: #1C1C1C;
+// $color-2: #F2F2F2;
+// $color-3: #3A00BA;
+
+$color-white: #EDEDED;
+$color-white-dark: #E6E6E6;
+$color-black: #3B3B3B;
+$color-purple: #4E00FF;
+$color-purple-shadow: rgba(14, 0, 48, 0.1);
+$color-purple-light: rgb(179, 147, 255);
+
+// Borders
+$br-large: 12rem;
+$br-medium: 6rem;
+$br-small: 3rem;
+$br-smallest: 1rem;
+
+$purple-border-large: 1rem;
+$purple-border-medium: 0.5rem;
+$purple-border-small: 0.2rem;
+
+// Other
+$max-width: 1366px;
+$highest-z-index: 100;
+$transition: 0.3s;
+
+// Box shadows
+$right-box-shadow: -2px 2px 2px 0px $color-purple-shadow;
+$left-box-shadow: 2px 2px 2px 0 $color-purple-shadow;
+

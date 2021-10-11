@@ -1,0 +1,210 @@
+@import '../../sass/vars';
+
+.contacts{
+    margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: 1fr repeat(4, minmax(14rem, 1fr)) 1fr;
+    grid-template-rows: 20rem max-content 8rem;
+
+    @media only screen and (max-width: 37.5em) {
+        grid-template-columns: 1fr repeat(4, minmax(8rem, 1fr)) 1fr;
+        grid-template-rows: 14rem max-content 8rem;
+        
+    }
+    
+    .heading{
+        grid-column: 1 / 6;
+        grid-row: 1 / 2;
+        z-index: 4;
+        justify-self: center;
+        align-self: center;
+        position: relative;
+
+        @media only screen and (max-width: 56.25em) {
+            grid-column: 1 / -1;
+        }
+
+        &::after{
+            content: '';
+            height: 100%;
+            width: 3px;
+            background-color: $color-purple;
+            position: absolute;
+            bottom: 0;
+            right: -2rem;
+            transform: translateY(-1rem);
+
+            @media only screen and (max-width: 43.75em) {
+                transform: translateY(-0.5rem);
+            }
+        }
+        &::before{
+            content: '';
+            height: 60%;
+            width: 2px;
+            background-color: $color-purple;
+            position: absolute;
+            bottom: 0;
+            right: -3rem;
+            transform: translateY(-1rem);
+
+            @media only screen and (max-width: 43.75em) {
+                transform: translateY(-0.5rem);
+            }
+        }
+    }
+    .leftSide{
+        grid-column: 1 / 6;
+        grid-row: 1 / -1;
+        background-color: $color-white;
+        border-radius: $br-large 0 $br-large 0;
+        z-index: 3;
+        position: relative;
+
+        @media only screen and (max-width: 56.25em) {
+            grid-column: 1 / -1;
+        }
+
+        .roundedCornerWrapper{
+            width: 10rem;
+            height: 10rem;
+            background-color: $color-white;
+            position: absolute;
+            top: 0;
+            right: -10rem;
+
+            @media only screen and (max-width: 56.25em) {
+                display: none;
+            }
+        }
+        .roundedCorner{
+            width: 100%;
+            height: 100%;
+            background-color: $color-black;
+            border-radius: 6rem 0 0 0;
+        }
+    }
+    .purpleBackLeft{
+        grid-column: 1 / 5;
+        grid-row: 1 / -1;
+        background-image: linear-gradient(to bottom, $color-purple, $color-black);
+        border-radius: $br-large 0 0 0;
+        z-index: 2;
+        transform: translateX(-$purple-border-large);
+    }
+    .leftContent{
+        grid-column: 1 / 6;
+        grid-row: 2 / 3;
+        z-index: 3;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        @media only screen and (max-width: 56.25em) {
+            grid-column: 1 / -1;
+        }
+
+        // @media only screen and (max-width: 37.5em) {
+        //     justify-content: center;
+        // }
+
+        
+
+        .contactsItem{
+            flex: 1 0 30%;
+            margin: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .itemLogo{
+                font-size: 4rem;
+                
+                svg{
+                    color: $color-black;
+                    transition: $transition;
+                    &:hover{
+                        color: $color-purple-light;
+                    }
+                    &:active{
+                        color: $color-purple;
+                    }
+                }
+            }
+            .itemText{
+                font-size: 1.8rem;
+            }
+        }
+
+    }
+    .rightSide{
+        grid-column: 5 / -1;
+        grid-row: 3 / 4;
+        background-color: $color-white-dark;
+        border-radius: $br-small 0 $br-medium 0;
+        padding: 1rem;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        box-shadow: $right-box-shadow;
+
+        @media only screen and (max-width: 56.25em) {
+            grid-column: 4 / -1;
+        }
+
+        @media only screen and (max-width: 37.5em) {
+            grid-column: 1 / 6;
+        }
+
+        .creditsContainer{
+            position: relative;
+            text-align: center;
+            display: grid;
+            grid-template-rows: 1fr max-content;
+            grid-template-columns: max-content;
+            align-items: end;
+
+            .credits{
+                padding: 1rem 2rem;
+                grid-row: 2 / -1;
+                grid-column: 1 / -1;
+
+                background-color: $color-white-dark;
+                border-radius: $br-small 0 $br-small 0;
+                z-index: 2;
+                line-height: 1.4;
+            }
+            .creditsBorder{
+                background-image: linear-gradient(to right, $color-purple, $color-white);
+                grid-row: 2 / -1;
+                grid-column: 1 / -1;
+                height: 60%;
+                border-radius: $br-small 0 0 0;
+                z-index: 1;
+                align-self: start;
+                transform: translate(-$purple-border-small, -$purple-border-small);
+                
+                @media only screen and (max-width: 43.75em) {
+                    height: 80%;
+                }
+            }
+        }
+    }
+    .purpleBackRight{
+        grid-column: 5 / -1;
+        grid-row: 3 / 4;
+        border-radius: $br-small 0 $br-medium 0;
+        background-image: linear-gradient(to top, $color-purple, $color-black);
+        transform: translateX($purple-border-large);
+        z-index: 4;
+
+        @media only screen and (max-width: 56.25em) {
+            grid-column: 4 / -1;
+        }
+        @media only screen and (max-width: 37.5em) {
+            grid-column: 1 / 6;
+            background-image: linear-gradient(to top, $color-purple, $color-white);
+            transform: translateX($purple-border-medium);
+        }
+    }
+}

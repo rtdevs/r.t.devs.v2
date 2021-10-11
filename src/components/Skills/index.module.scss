@@ -1,0 +1,229 @@
+@import '../../sass/vars';
+
+.skills{
+    display: grid;
+    grid-template-columns: 1fr repeat(4, minmax(14rem, 1fr)) 1fr;
+    grid-template-rows: 20rem max-content 8rem;
+
+    @media only screen and (max-width: 56.25em) {
+        grid-template-rows: 20rem max-content 4rem;
+    }
+
+    @media only screen and (max-width: 37.5em) {
+        grid-template-columns: 1fr repeat(4, minmax(8rem, 1fr)) 1fr;
+        grid-template-rows: 14rem max-content 8rem;
+    }
+
+    
+
+    //__Left side__
+    .leftSide{
+        grid-column: 1 / 4;
+        grid-row: 2 / 3;
+        background-color: $color-white-dark;
+        border-radius: 0 $br-medium 0 $br-large;
+        z-index: 4;
+        box-shadow: $left-box-shadow;
+
+        @media only screen and (max-width: 56.25em) {
+            grid-row: 2 / -1;
+        }
+    }
+    .purpleBackLeft{
+        grid-column: 1 / 4;
+        grid-row: 2 / 3;
+        background-image: linear-gradient(to top, $color-purple, $color-black);
+        border-radius: 0 $br-large 0 $br-large ;
+        z-index: 2;
+        transform: translateX(-$purple-border-large);
+        z-index: 3;
+
+        //__TEST
+        //__TEST
+        @media only screen and (max-width: 56.25em) {
+            grid-row: 2 / -1;
+        }
+    }
+    
+    .contentLeft{
+        grid-column: 1 / 4;
+        grid-row: 2 / 3;
+        z-index: 3;
+        justify-self: end;
+        text-align: right;
+        z-index: 5;
+        
+        .headingLeftContainer{
+            position: relative;
+            padding: 2rem;
+
+            .headingLeft{
+                padding: 1rem 2rem;
+                background-color: $color-white-dark;
+                border-radius: 0 $br-small 0 0;
+                position: relative;
+                z-index: 2;
+            }
+            .headingLeftBorder{
+                background-image: linear-gradient(to left, $color-purple, $color-white-dark);
+                width: 50%;
+                height: 40%;
+                position: absolute;
+                border-radius:  0 $br-small 0 0; 
+                top: 2rem;
+                right: 2rem;
+                z-index: 1;
+                transform: translate($purple-border-small, -$purple-border-small);
+            }
+        }
+        .listLeft{
+            margin: 2rem 2rem 2rem 0;
+            font-size: 1.6rem;
+        }
+    }
+    
+    //__Heading__
+    .heading{
+        grid-column: 2 / -1;
+        grid-row: 1 / 2;
+        z-index: 3;
+        justify-self: center;
+        align-self: center;
+        position: relative;
+
+        @media only screen and (max-width: 56.25em) {
+            grid-column: 1 / -1;
+        }
+
+        &::after{
+            content: '';
+            height: 100%;
+            width: 3px;
+            background-color: $color-purple;
+            position: absolute;
+            bottom: 0;
+            left: -2rem;
+            transform: translateY(-1rem);
+
+            @media only screen and (max-width: 43.75em) {
+                transform: translateY(-0.5rem);
+            }
+        }
+        &::before{
+            content: '';
+            height: 60%;
+            width: 2px;
+            background-color: $color-purple;
+            position: absolute;
+            bottom: 0;
+            left: -3rem;
+            transform: translateY(-1rem);
+
+            @media only screen and (max-width: 43.75em) {
+                transform: translateY(-0.5rem);
+            }
+        }
+    }
+
+    //__Right side__
+    .rightSide{
+        grid-column: 2 / -1;
+        grid-row: 1 / -1;
+        background-color: $color-white;
+        border-radius: 0 $br-large 0 0;
+        position: relative;
+        z-index: 2;
+
+        @media only screen and (max-width: 56.25em) {
+            grid-column: 1 / -1;
+            border-radius: 0 $br-large 0 $br-large;
+        }
+
+        .roundedCornerWrapperTop{
+            width: 10rem;
+            height: 10rem;
+            background-color: $color-white;
+            position: absolute;
+            top: 0;
+            left: -10rem;
+
+            @media only screen and (max-width: 56.25em) {
+                display: none;
+            }
+        }
+        .roundedCornerTop{
+            width: 100%;
+            height: 100%;
+            background-color: $color-black;
+            border-radius: 0 $br-medium 0 0;
+        }
+        .roundedCornerWrapperBottom{
+            width: 10rem;
+            height: 10rem;
+            background-color: $color-white;
+            position: absolute;
+            bottom: 0;
+            left: -10rem;
+
+            @media only screen and (max-width: 56.25em) {
+                display: none;
+            }
+        }
+        .roundedCornerBottom{
+            width: 100%;
+            height: 100%;
+            background-color: $color-black;
+            border-radius: 0 0 $br-medium 0;
+        }
+    }
+    .purpleBackRight{
+        grid-column: 2 / -1;
+        grid-row: 1 / -1;
+        border-radius: 0 $br-large 0 0;
+        background-image: linear-gradient(to bottom, $color-purple, $color-black);
+        transform: translateX($purple-border-large);
+        z-index: 1;
+    }
+    .contentRight{
+        grid-column: 4 / -1;
+        grid-row: 2 / 3;
+        justify-self: start;
+        z-index: 2;
+
+        .headingRightContainer{
+            position: relative;
+            padding: 2rem;
+            
+            @media only screen and (max-width: 37.5em) {
+                padding: 2rem 0rem 2rem 2rem;
+            }
+
+            .headingRight{
+                padding: 1rem 2rem;
+                background-color: $color-white;
+                border-radius: 0 0 0 $br-small;
+                position: relative;
+                z-index: 2;
+            }
+            .headingRightBorder{
+                background-image: linear-gradient(to right, $color-purple, $color-white);
+                width: 50%;
+                height: 40%;
+                position: absolute;
+                border-radius: 0 0 0 $br-small;
+                bottom: 2rem;
+                left: 2rem;
+                z-index: 1;
+                transform: translate(-$purple-border-small, $purple-border-small)
+            }
+        }
+        .listRight{
+            margin-left: 2rem;
+            margin-top: 2rem;
+            font-size: 1.6rem;
+            .listItemRight{
+
+            }
+        }
+    }
+}

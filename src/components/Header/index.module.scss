@@ -1,0 +1,325 @@
+@import '../../sass/vars';
+
+.header{
+    margin-top: 8rem;
+    display: grid;
+    grid-template-columns: 1fr repeat(4, minmax(14rem, 1fr)) 1fr;
+    grid-template-rows: 5rem max-content max-content 5rem;
+
+    @media only screen and (max-width: 56.25em) {
+        grid-template-columns: 10rem repeat(4, 1fr) 10rem;
+        grid-template-rows: 1fr max-content max-content 1fr;
+        // min-height: calc(100vh - 8rem);
+        min-height: 100vh;
+        margin-top: 0;
+    }
+
+    @media only screen and (max-width: 37.5em) {
+        grid-template-columns: 1rem repeat(4, 1fr);
+        grid-template-rows: 1fr max-content max-content 1fr;
+    }
+
+    //__Left side__
+.leftSide{
+    grid-column: 1 / 6;
+    grid-row: 1 / -1;
+    background-color: $color-white;
+    border-radius: $br-large 0 0 0;
+    z-index: 2;
+    position: relative;
+
+    @media only screen and (max-width: 56.25em) {
+        grid-column: 1 / -1;
+        border-radius: $br-large 0 $br-large 0;
+    }
+}
+.purpleBackLeftTop{
+
+    @media only screen and (max-width: 56.25em) {
+        grid-column: 1 / 6;
+        grid-row: 1 / -1;
+        background-image: linear-gradient(to bottom, $color-purple, $color-black);
+        border-radius: $br-large 0 0 0;
+        z-index: 1;
+        transform: translateX(-$purple-border-large);
+    }
+}
+.purpleBackLeft{
+    grid-column: 1 / 6;
+    grid-row: 1 / -1;
+    background-image: linear-gradient(to bottom, $color-purple, $color-black);
+    border-radius: $br-large 0 0 0;
+    z-index: 1;
+    transform: translateX(-$purple-border-large);
+
+    @media only screen and (max-width: 56.25em) {
+        grid-column: 1 / -1;
+        transform: translateX($purple-border-large);
+        border-radius: $br-large 0 $br-large 0;
+        background-image: linear-gradient(to top, $color-purple, $color-black);
+    }
+}
+
+.roundedCornerWrapper{
+    width: 10rem;
+    height: 10rem;
+    background-color: $color-white;
+    position: absolute;
+    bottom: 0;
+    right: -10rem;
+
+    @media only screen and (max-width: 56.25em) {
+        display: none;
+    }
+}
+.roundedCorner{
+    width: 100%;
+    height: 100%;
+    background-color: $color-black;
+    border-radius: 0 0 0 $br-medium;
+
+    @media only screen and (max-width: 56.25em) {
+        border-radius: $br-medium 0 0 $br-medium;
+    }
+}  
+
+
+.contentLeft{
+    margin-top: 5rem; // <- has to be the same as the grid-tempalte-row last row on parent el.
+    grid-column: 1 / 6;
+    grid-row: 3 / 4;
+    display: grid;
+    grid-row-gap: 3rem;
+    grid-template-rows: repeat(2, 1fr);
+    z-index: 4;
+
+    //__TEST
+    //__TEST
+    @media only screen and (max-width: 56.25em)  {
+        grid-column: 2 / 6;
+    }
+
+    @media only screen and (max-width: 37.5em) {
+       margin-top: 1rem;
+    }
+    
+    .top{
+        grid-row: 1 / 2;   
+        justify-self: end;
+        position: relative;
+
+        .dev{
+            padding: 2rem 8vw 2rem 4rem;
+            background-color: $color-white;
+            border-radius:  0 0 0 $br-small; 
+            position: relative;
+            z-index: 2;
+            
+            //__TEST
+            //__TEST
+            @media only screen and (max-width: 56.25em)  {
+               border-radius:  0 0 $br-small $br-small; 
+            }
+        }
+        .devBorder{
+            background-image: linear-gradient(to right, $color-purple, $color-white);
+            width: 30%;
+            height: 60%;
+            position: absolute;
+            border-radius:  0 0 0 $br-small; 
+            bottom: 0;
+            z-index: 1;
+            transform: translate(-$purple-border-small, $purple-border-small);
+        }
+    }
+    
+    .bottom{
+        grid-row: 2 / -1;
+        justify-self: start;
+        position: relative;
+
+        .des{
+            padding: 2rem 4rem 2rem 8vw;
+            border-radius: 0 $br-small 0 0;
+            background-color: $color-white;
+            position: relative;
+            z-index: 2;
+
+            //__TEST
+            //__TEST
+            // @media only screen and (max-width: 56.25em)  {
+            //     background-color: $color-white-dark;
+            //  }
+        }
+        .desBorder{
+            background-image: linear-gradient(to left, $color-purple, $color-white);
+            width: 30%;
+            height: 60%;
+            border-radius: 0 $br-small 0 0;
+            right: 0;
+            top: 0;
+            position: absolute;
+            z-index: 1;
+            transform: translate($purple-border-small, -$purple-border-small);
+        }
+    }
+}
+
+//__Right side__
+    .rightSide{
+        background-color: $color-white-dark;
+        grid-column: 3 / -1;
+        grid-row: 2 / 3;
+        border-radius: $br-large 0 $br-large 0;
+        z-index: 3;
+        box-shadow: $right-box-shadow;
+
+        @media only screen and (max-width: 56.25em) {
+            grid-column: 2 / 6;
+            grid-row: 2 / 3;
+        }
+    }
+    .purpleBackRight{
+        grid-column: 3 / -1;
+        grid-row: 2 / 3;
+        border-radius: $br-large 0 $br-large 0;
+        background-image: linear-gradient(to top, $color-purple, $color-black);
+        transform: translateX($purple-border-large);
+        z-index: 2;
+
+        @media only screen and (max-width: 56.25em) {
+            display: none;
+            // grid-column: 2 / 6;
+            // grid-row: 2 / 3;
+            // transform: none;
+            // box-shadow: 2px -2px 2px 0 $color-purple-light;
+        }
+    }
+    .contentRight{
+        grid-column: 3 / -1;
+        grid-row: 2 / 3;
+        padding: 2rem;
+        position: relative;
+        z-index: 3;
+
+        @media only screen and (max-width: 56.25em) {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .name{
+            font-size: 10rem;
+            position: absolute;
+            left: 30rem;
+
+            @media only screen and (max-width: 56.25em) {
+                position: relative;
+                left: 0;
+            }
+
+            @media only screen and (max-width: 43.75em) {
+                font-size: 7rem;
+            }
+
+            @media only screen and (max-width: 37.5em) {
+                font-size: 6rem
+            }
+
+            &::after{
+                content: '';
+                height: 100%;
+                width: 3px;
+                background-color: $color-purple;
+                position: absolute;
+                bottom: 0;
+                right: -3rem;
+                transform: translateY(-1rem);
+            }
+            &::before{
+                content: '';
+                height: 60%;
+                width: 2px;
+                background-color: $color-purple;
+                position: absolute;
+                bottom: 0;
+                right: -5rem;
+                transform: translateY(-1rem);
+            }
+        }
+        .surname{
+            font-size: 10rem;
+            position: absolute;
+            bottom: 2rem;
+            left: -20rem;
+
+            @media only screen and (max-width: 56.25em) {
+                position: relative;
+                bottom: 0;
+                left: 0;
+            }
+
+            @media only screen and (max-width: 43.75em) {
+                font-size: 7rem;
+            }
+
+            @media only screen and (max-width: 37.5em) {
+                font-size: 6rem
+            }
+
+            &::after{
+                content: '';
+                height: 100%;
+                width: 3px;
+                background-color: $color-purple;
+                position: absolute;
+                bottom: 0;
+                left: -3rem;
+                transform: translateY(-1rem);
+            }
+            &::before{
+                content: '';
+                height: 60%;
+                width: 2px;
+                background-color: $color-purple;
+                position: absolute;
+                bottom: 0;
+                left: -5rem;
+                transform: translateY(-1rem);
+            }
+        }
+    }
+
+    //__Logo SVG
+    .portrait{
+        height: 44rem;
+        grid-row: 1 / -1;
+        grid-column: 1 / 2;
+        @media only screen and (max-width: 56.25em) {
+            grid-row: none;
+            grid-column: none;
+        }
+
+        @media only screen and (max-width: 43.75em) {
+            height: 36rem;
+        }
+
+        @media only screen and (max-width: 37.5em) {
+            height: 30rem;
+        }
+    }
+    .portrait svg{
+        height: 100%;
+    }
+    .portrait svg path{
+        stroke-width: 0.6px;
+        stroke-dasharray: 800;
+    }
+    .pathFill{
+        fill: $color-white-dark;
+    }
+}
+
+
+
